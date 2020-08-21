@@ -82,7 +82,9 @@ class Bot:
                 if seconds:
                     if self.opts.verbose:
                         print('video duration time in seconds:', seconds)
-            sleep_time = randrange(seconds)
+            # sleep_time = randrange(seconds)
+            # sleep_time = 30
+            sleep_time = random.randint(50, 60)
             print('stopping video in %s seconds' % sleep_time)
             time.sleep(sleep_time)
             youtube.disconnect()
