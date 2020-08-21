@@ -1,0 +1,22 @@
+#!/bin/bash
+rm -f /tmp/regions.*
+NLINE=`wc -l ./regions.txt | awk '{print $1}'`
+tfile=$(mktemp /tmp/regions.XXXXXXXXX)
+echo "a file: $tfile"
+shuf -n "$NLINE" ./regions.txt > "$tfile"
+echo "Lines = $NLINE"
+
+while IFS='' read -r line || [[ -n "$line" ]]; do
+#	echo "python3 bot.py --visits 1 --url "$line" --verbose"
+	echo "piactl disconnect"
+	piactl disconnect
+	sleep 15
+	echo "piactl set region "$line""
+	piactl set region "$line"
+	sleep 1
+	piactl connect
+	sleep 15
+	#./run_youtube running.txt
+	./run_youtube urls.txt
+done < "$tfile"
+#done < ./regions.txt
