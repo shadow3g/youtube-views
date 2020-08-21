@@ -8,7 +8,7 @@ import time
 from random import randrange
 from modules.youtube import YouTube
 from modules import utils
-
+import random
 
 class Bot:
     """ A bot to increase YouTube views """
