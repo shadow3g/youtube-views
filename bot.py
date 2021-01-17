@@ -53,10 +53,14 @@ class Bot:
                 if self.opts.verbose:
                     print('there was a problem loading this page. Retrying...')
                     youtube.disconnect()
+                    quit()
                     continue
             if self.opts.visits:
                 length = (len(title) + 4 - len(str(count)))
                 print('[{0}] {1}'.format(count, '-' * length))
+            url=self.opts.url
+            if url:
+                print('url:', url)
             if ipaddr:
                 print('external IP address:', ipaddr)
             channel_name = youtube.get_channel_name()
@@ -83,8 +87,9 @@ class Bot:
                     if self.opts.verbose:
                         print('video duration time in seconds:', seconds)
             # sleep_time = randrange(seconds)
-            # sleep_time = 30
             sleep_time = random.randint(50, 60)
+            if sleep_time > seconds:
+                sleep_time = seconds
             print('stopping video in %s seconds' % sleep_time)
             time.sleep(sleep_time)
             youtube.disconnect()
