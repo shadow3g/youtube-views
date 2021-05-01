@@ -3,9 +3,9 @@
 import googleapiclient.discovery
 
 #Voidreaper
-#playlist_id = "PL0bAs0PVPhik9jErrT90Ckk5_AHnoyeDt"
+#playlist_id = "UUT1wNkriwrFPEnl0eCW6bzw"
 #Benjamin
-playlist_id = "PLeNawkw_cKSPG_otYNLTKEZ7Dm_Qjb_GC"
+playlist_id = "UUCU-BLPu_rNfRiMR1XqvMbQ"
 
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey = "AIzaSyB90q9Hhr8HwmEolu6UcSeRUKVAS190Vuc")
 
